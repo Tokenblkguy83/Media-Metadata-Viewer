@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           # Specify the Python version you want to use
-          python-version: '3.10' # Pinned to Python 3.10 for reproducibility
+          python-version: '3.13' # Pinned to Python 3.10 for reproducibility
 
       - name: Install Tesseract OCR Engine
         # Install the Tesseract OCR engine system-wide on the Ubuntu runner
