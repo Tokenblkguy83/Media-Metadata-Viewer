@@ -1,0 +1,59 @@
+name: Backend CI
+
+on:
+  push:
+    branches:
+      - main # Or master, depending on your main branch name
+  pull_request:
+    branches:
+      - main # Or master
+
+jobs:
+  build:
+    name: Build, Install Dependencies, and Setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        # Uses the actions/checkout@v4 action to download your repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        # Uses the actions/setup-python@v5 action to set up a Python environment
+        uses: actions/setup-python@v5
+        with:
+          # Specify the Python version you want to use
+          python-version: '3.x' # Use a specific version like '3.9', '3.10', '3.11' or '3.12'
+
+      - name: Install Tesseract OCR Engine
+        # Install the Tesseract OCR engine system-wide on the Ubuntu runner
+        run: |
+          sudo apt update
+          sudo apt install -y tesseract-ocr tesseract-ocr-eng
+
+      - name: Install Python Dependencies
+        # Navigate to the backend directory and install dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run basic app setup (creates DB and folders)
+        # Run the app.py file to initialize the SQLite database and folders
+        run: |
+          cd backend
+          python app.py &
+          sleep 5
+          pkill -f "python app.py" || true
+        continue-on-error: true # Optional: uncomment if you want the workflow to pass even if killing the process fails
+
+      # Uncomment the following steps to enable linting and testing as part of the CI pipeline
+      # - name: Run Linting
+      #   run: |
+      #     cd backend
+      #     flake8 .
+
+      # - name: Run Tests
+      #   run: |
+      #     cd backend
+      #     pytest
