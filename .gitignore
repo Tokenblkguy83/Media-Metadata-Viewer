@@ -1,0 +1,5 @@
+# Ignore SQLite database file
+backend/mydatabase.db
+
+# Ignore uploads folder
+backend/uploads/
