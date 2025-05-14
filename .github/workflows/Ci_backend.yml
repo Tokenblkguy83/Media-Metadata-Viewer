@@ -27,9 +27,7 @@ jobs:
 
       - name: Install Tesseract OCR Engine
         # Install the Tesseract OCR engine system-wide on the Ubuntu runner
-        run: |
-          sudo apt update
-          sudo apt install -y tesseract-ocr tesseract-ocr-eng
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-eng
 
       - name: Install Python Dependencies
         # Navigate to the backend directory and install dependencies
