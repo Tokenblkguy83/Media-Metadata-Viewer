@@ -51,7 +51,6 @@ jobs:
           python app.py &
           sleep 5
           pkill -f "python app.py" || true
-        continue-on-error: true # Optional: uncomment if you want the workflow to pass even if killing the process fails
 
       # Uncomment the following steps to enable linting and testing as part of the CI pipeline
       # - name: Run Linting
