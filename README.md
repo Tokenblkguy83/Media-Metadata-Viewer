@@ -65,6 +65,28 @@ Media-Metadata-Viewer/
 └── README.md          # Information about your project
 ```
 
+## Dependency Management
+
+This project uses [Renovate](https://docs.renovatebot.com/) for automated dependency updates. Renovate will:
+
+- Monitor GitHub Actions workflows for updates to actions
+- Check Python dependencies in `requirements.txt` for updates
+- Create pull requests for outdated dependencies
+- Automatically merge minor and patch updates for stable dependencies
+- Group related dependencies to minimize PR noise
+
+The Dependency Dashboard is available in the Issues tab, providing an overview of all pending updates and detected dependencies.
+
+### Configuration
+
+The Renovate configuration is split between:
+- `renovate.json` - Main configuration file
+- `.github/renovate.json5` - Extended configuration with detailed comments
+
+### Schedule
+
+By default, Renovate runs every weekend to check for updates, minimizing disruption during the work week.
+
 ## License
 
 This project is licensed under the MIT License.
