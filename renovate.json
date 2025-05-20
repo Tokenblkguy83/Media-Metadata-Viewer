@@ -18,6 +18,10 @@
       "groupName": "GitHub Actions dependencies"
     },
     {
+      "matchManagers": ["pip_requirements"],
+      "groupName": "Python dependencies"
+    },
+    {
       "matchDepTypes": ["devDependencies"],
       "prPriority": 0
     },
@@ -27,6 +31,9 @@
       "automerge": true
     }
   ],
+  "python": {
+    "fileMatch": ["(^|/)requirements\\.txt$", "(^|/)requirements/.*\\.txt$"]
+  },
   "schedule": ["every weekend"],
   "timezone": "America/New_York",
   "prConcurrentLimit": 5,
