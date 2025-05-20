@@ -1,0 +1,43 @@
+{
+  // This is an extended configuration file with comments for better understanding
+  // The main configuration is in renovate.json at the root
+  
+  // Renovate will look for these files to update dependencies
+  "includePaths": [
+    ".github/workflows/**",
+    "backend/requirements.txt"
+  ],
+  
+  // Custom commit message format
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  
+  // Additional settings for Python dependencies
+  "python": {
+    "enabled": true,
+    "supportPolicy": ["lts_latest"]
+  },
+  
+  // Additional settings for GitHub Actions
+  "github-actions": {
+    "enabled": true,
+    "fileMatch": ["^.github/workflows/[^/]+\\.ya?ml$"]
+  },
+  
+  // Dependency Dashboard settings
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Dependency Dashboard",
+  "dependencyDashboardLabels": ["dependencies"],
+  
+  // Rebase strategy
+  "rebaseWhen": "auto",
+  
+  // Stability settings
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  
+  // Automerge settings (for trusted updates)
+  "automergeType": "pr",
+  "automergeComment": "Automatically merged by Renovate"
+}
