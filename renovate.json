@@ -9,63 +9,39 @@
   ],
   "packageRules": [
     {
-      "matchCategories": [
-        "python"
-      ],
-      "managerFilePatterns": [
-        "/(^|/)requirements\\.txt$/",
-        "/(^|/)requirements/.*\\.txt$/"
-      ]
+      "matchCategories": ["python"],
+      "groupName": "Python dependencies"
     },
     {
-      "matchManagers": [
-        "github-actions"
-      ],
+      "matchManagers": ["github-actions"],
       "groupName": "GitHub Actions",
       "pinDigests": true
     },
     {
-      "groupName": "GitHub Actions dependencies",
-      "matchPackageNames": [
-        "/^actions//"
-      ]
-    },
-    {
-      "matchManagers": [
-        "pip_requirements"
-      ],
-      "groupName": "Python dependencies"
-    },
-    {
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchDepTypes": ["devDependencies"],
       "prPriority": 0
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     }
   ],
-  "schedule": [
-    "every weekend"
-  ],
+  "schedule": ["every weekend"],
   "timezone": "America/New_York",
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
-  "labels": [
-    "dependencies"
-  ],
+  "labels": ["dependencies"],
   "vulnerabilityAlerts": {
-    "labels": [
-      "security"
-    ],
-    "assignees": [
-      "@Tokenblkguy83"
-    ]
-  }
+    "labels": ["security"],
+    "assignees": ["@Tokenblkguy83"]
+  },
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  "rebaseWhen": "auto",
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  "automergeType": "pr",
+  "automergeComment": "Automatically merged by Renovate"
 }
