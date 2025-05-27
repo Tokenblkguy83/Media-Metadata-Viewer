@@ -9,38 +9,63 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
+      "matchCategories": [
+        "python"
+      ],
+      "managerFilePatterns": [
+        "/(^|/)requirements\\.txt$/",
+        "/(^|/)requirements/.*\\.txt$/"
+      ]
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
       "groupName": "GitHub Actions",
       "pinDigests": true
     },
     {
-      "matchPackagePatterns": ["^actions/"],
-      "groupName": "GitHub Actions dependencies"
+      "groupName": "GitHub Actions dependencies",
+      "matchPackageNames": [
+        "/^actions//"
+      ]
     },
     {
-      "matchManagers": ["pip_requirements"],
+      "matchManagers": [
+        "pip_requirements"
+      ],
       "groupName": "Python dependencies"
     },
     {
-      "matchDepTypes": ["devDependencies"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
       "prPriority": 0
     },
     {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     }
   ],
-  "python": {
-    "fileMatch": ["(^|/)requirements\\.txt$", "(^|/)requirements/.*\\.txt$"]
-  },
-  "schedule": ["every weekend"],
+  "schedule": [
+    "every weekend"
+  ],
   "timezone": "America/New_York",
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
   "vulnerabilityAlerts": {
-    "labels": ["security"],
-    "assignees": ["@Tokenblkguy83"]
+    "labels": [
+      "security"
+    ],
+    "assignees": [
+      "@Tokenblkguy83"
+    ]
   }
 }
