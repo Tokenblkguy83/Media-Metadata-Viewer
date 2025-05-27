@@ -79,9 +79,8 @@ The Dependency Dashboard is available in the Issues tab, providing an overview o
 
 ### Configuration
 
-The Renovate configuration is split between:
-- `renovate.json` - Main configuration file
-- `.github/renovate.json5` - Extended configuration with detailed comments
+The Renovate configuration is located in:
+- `renovate.json` - Main configuration file with all settings
 
 ### Schedule
 
