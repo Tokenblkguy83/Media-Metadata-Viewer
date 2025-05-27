@@ -7,6 +7,10 @@
     ":enableVulnerabilityAlertsWithLabel(security)",
     "helpers:pinGitHubActionDigests"
   ],
+  "includePaths": [
+    ".github/workflows/**",
+    "backend/requirements.txt"
+  ],
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
@@ -32,8 +36,17 @@
     }
   ],
   "python": {
-    "fileMatch": ["(^|/)requirements\\.txt$", "(^|/)requirements/.*\\.txt$"]
+    "enabled": true,
+    "fileMatch": ["(^|/)requirements\\.txt$", "(^|/)requirements/.*\\.txt$"],
+    "supportPolicy": ["lts_latest"]
   },
+  "github-actions": {
+    "enabled": true,
+    "fileMatch": ["^.github/workflows/[^/]+\\.ya?ml$"]
+  },
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Dependency Dashboard",
+  "dependencyDashboardLabels": ["dependencies"],
   "schedule": ["every weekend"],
   "timezone": "America/New_York",
   "prConcurrentLimit": 5,
@@ -42,5 +55,13 @@
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "assignees": ["@Tokenblkguy83"]
-  }
+  },
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  "rebaseWhen": "auto",
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  "automergeType": "pr",
+  "automergeComment": "Automatically merged by Renovate"
 }
