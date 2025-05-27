@@ -1,27 +1,3 @@
-version: 2
-updates:
-  # Enable security updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "github-actions"
-    commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
-
-  # Enable security updates for pip
-  - package-ecosystem: "pip"
-    directory: "/backend"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "python"
-    commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
+# Dependabot is disabled in favor of Renovate
+# See renovate.json and .github/renovate.json5 for dependency management configuration
+# This file is kept to prevent accidental re-enabling of Dependabot
